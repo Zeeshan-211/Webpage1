@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5b1d2b">
+    <title>Skills &amp; Achievements | Zeeshan Aftab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --burgundy: #5b1d2b;
+            --burgundy-deep: #3e111c;
+            --beige: #c6ad94;
+            --paper: #f1e7da;
+            --ink: #271a18;
+            --muted: #6b5b51;
+            --line: rgba(62, 17, 28, 0.24);
+            --serif: "DM Serif Display", Georgia, serif;
+            --sans: "Manrope", "Avenir Next", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--beige);
+            color: var(--ink);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .site-header {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 18px max(6vw, 24px);
+            background: var(--burgundy);
+            color: var(--paper);
+        }
+
+        .brand {
+            color: inherit;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 8px 26px;
+        }
+
+        .site-nav a {
+            color: rgba(241, 231, 218, 0.82);
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 180ms ease;
+        }
+
+        .site-nav a:hover,
+        .site-nav a:focus-visible {
+            color: #fff;
+        }
+
+        .page-heading {
+            padding: 64px max(8vw, 32px) 52px;
+            background: var(--paper);
+        }
+
+        .eyebrow,
+        .section-kicker {
+            margin: 0 0 16px;
+            color: var(--burgundy);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 12px;
+            color: var(--burgundy-deep);
+            font-family: var(--serif);
+            font-size: 64px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .page-heading > p:last-child {
+            max-width: 640px;
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .achievement-section {
+            display: grid;
+            grid-template-columns: minmax(200px, 0.72fr) minmax(0, 1.28fr);
+            gap: 8vw;
+            align-items: start;
+            padding: 88px max(8vw, 32px) 96px;
+            background: var(--beige);
+        }
+
+        .section-heading h2,
+        .skills-section h2 {
+            margin: 0;
+            color: var(--burgundy-deep);
+            font-family: var(--serif);
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.05;
+        }
+
+        .achievement-table-wrap {
+            min-width: 0;
+            overflow-x: auto;
+        }
+
+        .achievement-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .achievement-table th,
+        .achievement-table td {
+            padding: 19px 18px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: middle;
+        }
+
+        .achievement-table thead th {
+            background: var(--burgundy);
+            color: var(--paper);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .achievement-table thead th:first-child {
+            width: 62%;
+        }
+
+        .achievement-table tbody th {
+            color: var(--burgundy-deep);
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .achievement-table tbody td {
+            color: var(--burgundy);
+            font-size: 13px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .skills-section {
+            display: grid;
+            grid-template-columns: minmax(200px, 0.72fr) minmax(0, 1.28fr);
+            gap: 8vw;
+            padding: 78px max(8vw, 32px) 90px;
+            background: var(--paper);
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            min-height: 74px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--line);
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .skills-list li::before {
+            width: 7px;
+            height: 7px;
+            flex: 0 0 7px;
+            background: var(--burgundy);
+            content: "";
+            transform: rotate(45deg);
+        }
+
+        .site-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px;
+            padding: 27px max(6vw, 24px);
+            background: var(--burgundy-deep);
+            color: var(--paper);
+            font-size: 11px;
+        }
+
+        .site-footer p {
+            margin: 0;
+        }
+
+        .site-footer a {
+            color: inherit;
+            font-weight: 800;
+            text-underline-offset: 4px;
+        }
+
+        @media (max-width: 760px) {
+            .site-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .site-nav {
+                justify-content: flex-start;
+                gap: 12px 20px;
+            }
+
+            .page-heading {
+                padding: 54px 28px 42px;
+            }
+
+            .achievement-section,
+            .skills-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 68px 28px;
+            }
+
+            .section-heading h2,
+            .skills-section h2 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 460px) {
+            h1 {
+                font-size: 50px;
+            }
+
+            .achievement-table th,
+            .achievement-table td {
+                padding: 16px 12px;
+            }
+
+            .skills-list {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="Home%20page.html">Personal Portfolio</a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="Home%20page.html">Home</a>
+            <a href="Skills.html" aria-current="page">Skills</a>
+            <a href="Problem%20Solving.html">Problem Solving</a>
+            <a href="Showcase.html">Showcase</a>
+            <a href="Contacts.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-heading" aria-labelledby="page-title">
+            <p class="eyebrow">Learning and recognition</p>
+            <h1 id="page-title">Skills &amp; Achievements</h1>
+            <p>A record of the subjects I have studied and the results I have earned along the way.</p>
+        </section>
+
+        <section class="achievement-section" aria-labelledby="achievement-title">
+            <div class="section-heading">
+                <p class="section-kicker">Academic highlights</p>
+                <h2 id="achievement-title">Results.</h2>
+            </div>
+            <div class="achievement-table-wrap">
+                <table class="achievement-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Achievement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">BTEC Law</th>
+                            <td>Distinction*</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">IT</th>
+                            <td>Distinction</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Business</th>
+                            <td>Distinction</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="skills-section" aria-labelledby="skills-title">
+            <div>
+                <p class="section-kicker">Tools and foundations</p>
+                <h2 id="skills-title">Skills.</h2>
+            </div>
+            <ul class="skills-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Data-minded. Security-focused. Always learning.</p>
+        <a href="Contacts.html">Get in touch</a>
+    </footer>
+</body>
+</html>

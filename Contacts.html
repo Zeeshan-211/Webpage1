@@ -1,9 +1,434 @@
-<html> 
-    <head>
-        <title>Contacts</title>
-    </head>
-    <body>
-        <h1>My Contacts</h1>
-        <p>This is a simple paragraph about my contacts.</p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5b1d2b">
+    <title>Get in Touch | Zeeshan Aftab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --burgundy: #5b1d2b;
+            --burgundy-deep: #3e111c;
+            --beige: #c6ad94;
+            --paper: #f1e7da;
+            --ink: #271a18;
+            --muted: #6b5b51;
+            --line: rgba(62, 17, 28, 0.24);
+            --serif: "DM Serif Display", Georgia, serif;
+            --sans: "Manrope", "Avenir Next", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--beige);
+            color: var(--ink);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .site-header {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 18px max(6vw, 24px);
+            background: var(--burgundy);
+            color: var(--paper);
+        }
+
+        .brand {
+            color: inherit;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 8px 26px;
+        }
+
+        .site-nav a {
+            color: rgba(241, 231, 218, 0.82);
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 180ms ease;
+        }
+
+        .site-nav a:hover,
+        .site-nav a:focus-visible {
+            color: #fff;
+        }
+
+        .page-heading {
+            padding: 64px max(8vw, 32px) 48px;
+            background: var(--paper);
+            animation: arrive 650ms ease-out both;
+        }
+
+        .eyebrow {
+            margin: 0 0 16px;
+            color: var(--burgundy);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 12px;
+            color: var(--burgundy-deep);
+            font-family: var(--serif);
+            font-size: 68px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .page-heading > p:last-child {
+            max-width: 600px;
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
+            min-height: 520px;
+        }
+
+        .contact-details {
+            padding: 54px max(5vw, 28px) 60px max(8vw, 32px);
+            background: var(--burgundy);
+            color: var(--paper);
+        }
+
+        .contact-details h2,
+        .message-panel h2 {
+            margin-bottom: 28px;
+            font-family: var(--serif);
+            font-size: 34px;
+            font-weight: 400;
+        }
+
+        .contact-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .contact-list li {
+            padding: 18px 0;
+            border-top: 1px solid rgba(241, 231, 218, 0.26);
+        }
+
+        .contact-label {
+            display: block;
+            margin-bottom: 6px;
+            color: rgba(241, 231, 218, 0.68);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .contact-value {
+            color: var(--paper);
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+
+        .message-panel {
+            padding: 54px max(8vw, 32px) 60px max(5vw, 28px);
+            background: var(--beige);
+        }
+
+        .message-panel h2 {
+            margin-bottom: 8px;
+            color: var(--burgundy-deep);
+        }
+
+        .form-intro {
+            margin-bottom: 26px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .message-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 16px;
+        }
+
+        .field {
+            display: flex;
+            min-width: 0;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .field--wide {
+            grid-column: 1 / -1;
+        }
+
+        .field label {
+            color: var(--burgundy-deep);
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .field input,
+        .field textarea {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 1px solid var(--line);
+            border-radius: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font: inherit;
+            font-size: 13px;
+        }
+
+        .field textarea {
+            min-height: 128px;
+            resize: vertical;
+        }
+
+        .field input:focus,
+        .field textarea:focus {
+            outline: 2px solid var(--burgundy);
+            outline-offset: 2px;
+        }
+
+        .send-button {
+            display: inline-flex;
+            min-height: 48px;
+            grid-column: 1 / -1;
+            align-items: center;
+            justify-content: center;
+            justify-self: start;
+            padding: 0 22px;
+            border: 0;
+            background: var(--burgundy);
+            color: var(--paper);
+            cursor: pointer;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 800;
+            transition: background 180ms ease, transform 180ms ease;
+        }
+
+        .send-button:hover,
+        .send-button:focus-visible {
+            transform: translateY(-2px);
+            background: var(--burgundy-deep);
+        }
+
+        .site-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px;
+            padding: 27px max(6vw, 24px);
+            background: var(--burgundy-deep);
+            color: var(--paper);
+            font-size: 11px;
+        }
+
+        .site-footer p {
+            margin: 0;
+        }
+
+        .site-footer a {
+            color: inherit;
+            font-weight: 800;
+            text-underline-offset: 4px;
+        }
+
+        @keyframes arrive {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 760px) {
+            .site-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .site-nav {
+                justify-content: flex-start;
+                gap: 12px 20px;
+            }
+
+            .page-heading {
+                padding: 54px 28px 40px;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-details,
+            .message-panel {
+                padding: 42px 28px;
+            }
+        }
+
+        @media (max-width: 460px) {
+            h1 {
+                font-size: 52px;
+            }
+
+            .message-form {
+                grid-template-columns: 1fr;
+            }
+
+            .field--wide,
+            .send-button {
+                grid-column: auto;
+            }
+
+            .send-button {
+                justify-self: stretch;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="Home%20page.html">Personal Portfolio</a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="Home%20page.html">Home</a>
+            <a href="Skills.html">Skills</a>
+            <a href="Problem%20Solving.html">Problem Solving</a>
+            <a href="Showcase.html">Showcase</a>
+            <a href="Contacts.html" aria-current="page">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-heading" aria-labelledby="page-title">
+            <p class="eyebrow">Zeeshan Aftab · Data Analyst</p>
+            <h1 id="page-title">Get in Touch</h1>
+            <p>Have a question or want to connect? Send me a message or reach me directly using the details below.</p>
+        </section>
+
+        <section class="contact-layout" aria-label="Contact information and message form">
+            <div class="contact-details">
+                <p class="eyebrow">Contact details</p>
+                <h2>Find me here.</h2>
+                <ul class="contact-list">
+                    <li>
+                        <span class="contact-label">Email</span>
+                        <a class="contact-value" href="mailto:z.aftab@edu.salford.a.uk">z.aftab@edu.salford.a.uk</a>
+                    </li>
+                    <li>
+                        <span class="contact-label">Phone</span>
+                        <a class="contact-value" href="tel:07471285879">07471285879</a>
+                    </li>
+                    <li>
+                        <span class="contact-label">LinkedIn</span>
+                        <a class="contact-value" href="https://www.linkedin.com/in/zeeshan-aftab-3a958b380" target="_blank" rel="noopener noreferrer">Zeeshan Aftab on LinkedIn ↗</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="message-panel">
+                <p class="eyebrow">Start a conversation</p>
+                <h2>Send me a message.</h2>
+                <p class="form-intro">Fill in your details and I’ll be glad to hear from you.</p>
+                <form class="message-form" id="message-form" action="mailto:z.aftab@edu.salford.a.uk" method="post" enctype="text/plain">
+                    <div class="field">
+                        <label for="sender-name">Your name</label>
+                        <input id="sender-name" name="name" type="text" autocomplete="name" required>
+                    </div>
+                    <div class="field">
+                        <label for="sender-email">Your email</label>
+                        <input id="sender-email" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="field field--wide">
+                        <label for="sender-phone">Your phone number</label>
+                        <input id="sender-phone" name="phone" type="tel" autocomplete="tel" required>
+                    </div>
+                    <div class="field field--wide">
+                        <label for="sender-message">Message</label>
+                        <textarea id="sender-message" name="message" required></textarea>
+                    </div>
+                    <button class="send-button" type="submit">Send message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Data-minded. Security-focused. Always learning.</p>
+        <a href="Home%20page.html">Back to home</a>
+    </footer>
+
+    <script>
+        document.querySelector("#message-form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.currentTarget);
+            const senderName = formData.get("name");
+            const messageBody = [
+                `Name: ${senderName}`,
+                `Email: ${formData.get("email")}`,
+                `Phone: ${formData.get("phone")}`,
+                "",
+                formData.get("message")
+            ].join("\n");
+            const subject = encodeURIComponent(`Portfolio message from ${senderName}`);
+            window.location.href = `mailto:z.aftab@edu.salford.a.uk?subject=${subject}&body=${encodeURIComponent(messageBody)}`;
+        });
+    </script>
+</body>
 </html>

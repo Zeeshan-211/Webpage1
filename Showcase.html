@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5b1d2b">
+    <title>Showcase | Zeeshan Aftab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burgundy: #5b1d2b;
+            --burgundy-deep: #3e111c;
+            --beige: #c6ad94;
+            --paper: #f1e7da;
+            --ink: #271a18;
+            --muted: #6b5b51;
+            --line: rgba(62, 17, 28, 0.24);
+            --serif: "DM Serif Display", Georgia, serif;
+            --sans: "Manrope", "Avenir Next", sans-serif;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--beige); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+        a { color: inherit; }
+        .site-header { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px max(6vw, 24px); background: var(--burgundy); color: var(--paper); }
+        .brand { color: inherit; font-size: 13px; font-weight: 800; text-decoration: none; text-transform: uppercase; }
+        .site-nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px 26px; }
+        .site-nav a { color: rgba(241, 231, 218, 0.82); font-size: 12px; font-weight: 700; text-decoration: none; }
+        .site-nav a:hover, .site-nav a:focus-visible { color: #fff; }
+        .page-heading { padding: 64px max(8vw, 32px) 48px; background: var(--paper); }
+        .eyebrow { margin: 0 0 16px; color: var(--burgundy); font-size: 11px; font-weight: 800; text-transform: uppercase; }
+        h1, h2, h3, p { margin-top: 0; }
+        h1 { margin-bottom: 12px; color: var(--burgundy-deep); font-family: var(--serif); font-size: 64px; font-weight: 400; line-height: 1; }
+        .page-heading > p:last-child { max-width: 700px; margin-bottom: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+        .project-list { padding: 22px max(8vw, 32px) 78px; background: var(--beige); }
+        .project-row { display: grid; grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr); gap: 7vw; padding: 48px 0; border-top: 1px solid var(--line); }
+        .project-meta { align-self: start; }
+        .project-number { display: block; margin-bottom: 20px; color: var(--burgundy); font-family: var(--serif); font-size: 32px; }
+        .project-meta .eyebrow { margin-bottom: 10px; }
+        .project-meta h2 { margin: 0 0 12px; color: var(--burgundy-deep); font-family: var(--serif); font-size: 38px; font-weight: 400; line-height: 1.05; }
+        .project-role { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+        .project-content { min-width: 0; }
+        .project-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 34px; }
+        .project-fact { padding-top: 12px; border-top: 1px solid rgba(62, 17, 28, 0.28); }
+        .project-fact h3 { margin-bottom: 8px; color: var(--burgundy); font-size: 10px; font-weight: 800; text-transform: uppercase; }
+        .project-fact p { margin: 0; color: #493b34; font-size: 12px; line-height: 1.8; }
+        .project-link { display: inline-block; margin-top: 22px; color: var(--burgundy); font-size: 12px; font-weight: 800; text-underline-offset: 4px; }
+        .project-caveat { margin: 0; padding: 28px max(8vw, 32px) 36px; background: var(--paper); color: var(--muted); font-size: 11px; line-height: 1.8; }
+        .site-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; padding: 27px max(6vw, 24px); background: var(--burgundy-deep); color: var(--paper); font-size: 11px; }
+        .site-footer p { margin: 0; }
+        .site-footer a { color: inherit; font-weight: 800; text-underline-offset: 4px; }
+        @media (max-width: 760px) {
+            .site-header { align-items: flex-start; flex-direction: column; gap: 16px; }
+            .site-nav { justify-content: flex-start; gap: 12px 20px; }
+            .page-heading { padding: 54px 28px 40px; }
+            .project-list { padding: 12px 28px 56px; }
+            .project-row { grid-template-columns: 1fr; gap: 26px; padding: 36px 0; }
+            .project-number { margin-bottom: 10px; }
+            .project-meta h2 { font-size: 34px; }
+            .project-caveat { padding: 24px 28px 30px; }
+        }
+        @media (max-width: 460px) {
+            h1 { font-size: 50px; }
+            .project-facts { grid-template-columns: 1fr; gap: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="Home%20page.html">Personal Portfolio</a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="Home%20page.html">Home</a>
+            <a href="Skills.html">Skills</a>
+            <a href="Problem%20Solving.html">Problem Solving</a>
+            <a href="Showcase.html" aria-current="page">Showcase</a>
+            <a href="Contacts.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-heading" aria-labelledby="page-title">
+            <p class="eyebrow">Selected work</p>
+            <h1 id="page-title">Project Showcase</h1>
+            <p>Three projects across data analysis and web design, with the challenges, approaches, and lessons behind each one.</p>
+        </section>
+
+        <section class="project-list" aria-label="Project case studies">
+            <article class="project-row" aria-labelledby="gauchini-title">
+                <div class="project-meta">
+                    <span class="project-number">01</span>
+                    <p class="eyebrow">Website concept</p>
+                    <h2 id="gauchini-title">Gauchini Restaurant</h2>
+                    <p class="project-role">Role: project brief, content direction, and review.</p>
+                </div>
+                <div class="project-content">
+                    <div class="project-facts">
+                        <div class="project-fact">
+                            <h3>Problem</h3>
+                            <p>A restaurant needs one clear place for guests to discover its atmosphere, explore the menu, learn its story, and plan a visit.</p>
+                        </div>
+                        <div class="project-fact">
+                            <h3>Approach</h3>
+                            <p>Defined a dark, elegant restaurant concept and organized it into connected Home, Menu, About, and Bookings pages.</p>
+                        </div>
+                        <div class="project-fact">
+                            <h3>Outcome</h3>
+                            <p>Delivered a responsive four-page prototype with social links, contact details, and a booking request preview clearly marked as non-live.</p>
+                        </div>
+                        <div class="project-fact">
+                            <h3>Skills and lesson</h3>
+                            <p>Content structure, responsive HTML and CSS, accessibility, and usability review. A clear path from discovery to booking helps guests decide what to do next.</p>
+                        </div>
+                    </div>
+                    <a class="project-link" href="Gauchini/index.html">View the Gauchini website</a>
+                </div>
+            </article>
+
+            <article class="project-row" aria-labelledby="portfolio-title">
+                <div class="project-meta">
+                    <span class="project-number">02</span>
+                    <p class="eyebrow">Personal website</p>
+                    <h2 id="portfolio-title">Portfolio Website</h2>
+                    <p class="project-role">Role: portfolio owner; requirements, content, and review.</p>
+                </div>
+                <div class="project-content">
+                    <div class="project-facts">
+                        <div class="project-fact">
+                            <h3>Problem</h3>
+                            <p>Professional background, achievements, interests, and career direction needed a clear and consistent home online.</p>
+                        </div>
+                        <div class="project-fact">
+                            <h3>Approach</h3>
+                            <p>Organized the information across linked pages, with consistent navigation and layouts adapted for smaller screens.</p>
+                        </div>
+                        <div class="project-fact">
+                            <h3>Outcome</h3>
+                            <p>Created a multi-page portfolio with a profile, experience, achievements, project showcase, and contact form that prepares an email draft.</p>
+                        </div>
+                        <div class="project-fact">
+                            <h3>Skills and lesson</h3>
+                            <p>Requirements planning, content organization, HTML, CSS, and responsive design review. Focused pages make a broad professional story easier to scan.</p>
+                        </div>
+                    </div>
+                    <a class="project-link" href="Home%20page.html">View the portfolio home page</a>
+                </div>
+            </article>
+
+            <article class="project-row" aria-labelledby="claims-title">
+                <div class="project-meta">
+                    <span class="project-number">03</span>
+                    <p class="eyebrow">Data analysis · DHL</p>
+                    <h2 id="claims-title">Claims Cost Reporting</h2>
+                    <p class="project-role">Role: Data Analyst.</p>
+                </div>
+                <div class="project-content">
+                    <div class="project-facts">
+                        <div class="project-fact">
+                            <h3>Problem</h3>
+                            <p>It was difficult and time-consuming to find total outgoing costs for damaged-item claims.</p>
+                        </div>
+                        <div class="project-fact">
+                            <h3>Approach</h3>
+                            <p>Used Power BI to make the total costs for damaged items easier and quicker to find.</p>
+                        </div>
+                        <div class="project-fact">
+                            <h3>Outcome</h3>
+                            <p>The claims process became more streamlined, without relying on unverified performance figures.</p>
+                        </div>
+                        <div class="project-fact">
+                            <h3>Skills and lesson</h3>
+                            <p>Power BI, data analysis, and cost reporting. Making key totals easy to locate can reduce friction in a recurring process.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <p class="project-caveat">The DHL case study is generalized and excludes confidential company data. Gauchini is a restaurant website concept; its menu, contact details, and social links are illustrative.</p>
+    </main>
+
+    <footer class="site-footer">
+        <p>Data-minded. Security-focused. Always learning.</p>
+        <a href="Contacts.html">Get in touch</a>
+    </footer>
+</body>
+</html>

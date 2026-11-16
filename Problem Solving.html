@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5b1d2b">
+    <title>Problem Solving | Zeeshan Aftab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burgundy: #5b1d2b;
+            --burgundy-deep: #3e111c;
+            --beige: #c6ad94;
+            --paper: #f1e7da;
+            --ink: #271a18;
+            --muted: #6b5b51;
+            --serif: "DM Serif Display", Georgia, serif;
+            --sans: "Manrope", "Avenir Next", sans-serif;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--beige); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+        a { color: inherit; }
+        .site-header { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px max(6vw, 24px); background: var(--burgundy); color: var(--paper); }
+        .brand { color: inherit; font-size: 13px; font-weight: 800; text-decoration: none; text-transform: uppercase; }
+        .site-nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px 26px; }
+        .site-nav a { color: rgba(241, 231, 218, 0.82); font-size: 12px; font-weight: 700; text-decoration: none; }
+        .site-nav a:hover, .site-nav a:focus-visible { color: #fff; }
+        .page-heading { padding: 64px max(8vw, 32px) 48px; background: var(--paper); }
+        .eyebrow { margin: 0 0 16px; color: var(--burgundy); font-size: 11px; font-weight: 800; text-transform: uppercase; }
+        h1, h2, p { margin-top: 0; }
+        h1 { margin-bottom: 12px; color: var(--burgundy-deep); font-family: var(--serif); font-size: 64px; font-weight: 400; line-height: 1; }
+        .page-heading > p:last-child { max-width: 620px; margin-bottom: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+        .project-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); background: var(--burgundy-deep); color: var(--paper); }
+        .project-feature img { display: block; width: 100%; height: 100%; min-height: 440px; object-fit: cover; object-position: center; }
+        .project-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 64px max(7vw, 32px); }
+        .project-copy .eyebrow { color: #d3b99f; }
+        .project-copy h2 { margin-bottom: 18px; font-family: var(--serif); font-size: 48px; font-weight: 400; line-height: 1.05; }
+        .project-copy p:not(.eyebrow) { max-width: 460px; color: rgba(241, 231, 218, 0.78); font-size: 14px; line-height: 1.85; }
+        .project-link { display: inline-flex; min-height: 48px; align-items: center; margin-top: 16px; padding: 0 20px; background: var(--beige); color: var(--burgundy-deep); font-size: 12px; font-weight: 800; text-decoration: none; transition: background 180ms ease, transform 180ms ease; }
+        .project-link:hover, .project-link:focus-visible { transform: translateY(-2px); background: var(--paper); }
+        .case-study { padding: 82px max(8vw, 32px) 90px; background: var(--beige); }
+        .case-study-intro { max-width: 760px; margin-bottom: 42px; }
+        .case-study-intro h2 { margin-bottom: 16px; color: var(--burgundy-deep); font-family: var(--serif); font-size: 48px; font-weight: 400; line-height: 1.05; }
+        .case-study-intro > p:last-child { color: #483a34; font-size: 14px; line-height: 1.9; }
+        .case-study-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 48px; }
+        .case-study-item { padding-top: 18px; border-top: 1px solid rgba(62, 17, 28, 0.34); }
+        .case-study-item h3 { margin-bottom: 10px; color: var(--burgundy-deep); font-family: var(--serif); font-size: 25px; font-weight: 400; }
+        .case-study-item p { margin-bottom: 12px; color: #55453d; font-size: 12px; line-height: 1.8; }
+        .page-links { display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 0; padding: 0; list-style: none; }
+        .page-links a { color: var(--burgundy); font-size: 12px; font-weight: 800; text-underline-offset: 4px; }
+        .site-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; padding: 27px max(6vw, 24px); background: var(--burgundy); color: var(--paper); font-size: 11px; }
+        .site-footer p { margin: 0; }
+        .site-footer a { color: inherit; font-weight: 800; text-underline-offset: 4px; }
+        @media (max-width: 760px) {
+            .site-header { align-items: flex-start; flex-direction: column; gap: 16px; }
+            .site-nav { justify-content: flex-start; gap: 12px 20px; }
+            .page-heading { padding: 54px 28px 40px; }
+            .project-feature { grid-template-columns: 1fr; }
+            .project-feature img { min-height: 320px; max-height: 440px; }
+            .project-copy { padding: 48px 28px 56px; }
+            .case-study { padding: 64px 28px 72px; }
+            .case-study-grid { grid-template-columns: 1fr; gap: 28px; }
+        }
+        @media (max-width: 460px) { h1 { font-size: 50px; } .project-copy h2 { font-size: 42px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="Home%20page.html">Personal Portfolio</a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="Home%20page.html">Home</a>
+            <a href="Skills.html">Skills</a>
+            <a href="Problem%20Solving.html" aria-current="page">Problem Solving</a>
+            <a href="Showcase.html">Showcase</a>
+            <a href="Contacts.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section class="page-heading" aria-labelledby="page-title">
+            <p class="eyebrow">Selected work</p>
+            <h1 id="page-title">Problem Solving</h1>
+            <p>A collection of ideas shaped into practical, thoughtful projects.</p>
+        </section>
+        <article class="project-feature">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Warm, intimate restaurant interior with evening lighting">
+            <div class="project-copy">
+                <p class="eyebrow">Restaurant website concept</p>
+                <h2>Gauchini</h2>
+                <p>A dark, elegant restaurant experience with a home page, sample menu, story, and table booking page.</p>
+                <a class="project-link" href="Gauchini/index.html">Explore the Gauchini project <span aria-hidden="true">&nbsp;↗</span></a>
+            </div>
+        </article>
+        <section class="case-study" aria-labelledby="business-context-title">
+            <div class="case-study-intro">
+                <p class="eyebrow">Business context</p>
+                <h2 id="business-context-title">A restaurant's first impression starts online.</h2>
+                <p>For an independent restaurant, a useful website can help new guests discover the venue, understand its food and atmosphere, and plan a visit. The Gauchini project goal is to create a polished, mobile-friendly experience that brings those decisions together in one place.</p>
+            </div>
+            <div class="case-study-grid">
+                <article class="case-study-item">
+                    <p class="eyebrow">The need</p>
+                    <h3>Turn interest into a visit.</h3>
+                    <p>Guests need a quick way to get a feel for the restaurant, browse its menu, learn about the concept, and find the next step toward a table.</p>
+                </article>
+                <article class="case-study-item">
+                    <p class="eyebrow">The solution</p>
+                    <h3>One connected restaurant experience.</h3>
+                    <p>Responsive pages give each part of the guest journey a clear place:</p>
+                    <ul class="page-links">
+                        <li><a href="Gauchini/index.html">Home</a></li>
+                        <li><a href="Gauchini/menu.html">Menu</a></li>
+                        <li><a href="Gauchini/about.html">About</a></li>
+                        <li><a href="Gauchini/bookings.html">Bookings</a></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <p>Data-minded. Security-focused. Always learning.</p>
+        <a href="Contacts.html">Get in touch</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111512">
+    <title>Bookings | Gauchini</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html">Gauchini</a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a class="nav-booking" href="bookings.html" aria-current="page">Bookings</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-intro" aria-labelledby="page-title">
+            <p class="eyebrow">Save your seat</p>
+            <h1 id="page-title">Bookings</h1>
+            <p>Choose your preferred date, time, and party size. We look forward to welcoming you to Gauchini.</p>
+        </section>
+
+        <section class="booking-layout" aria-label="Booking request form">
+            <div class="booking-aside">
+                <p class="eyebrow">Your evening starts here</p>
+                <h2>Gather around.</h2>
+                <p>Share a few details about the table you have in mind. This page is a visual concept, so booking requests are not sent to a live restaurant.</p>
+            </div>
+
+            <form class="booking-form" id="booking-form">
+                <div class="form-field">
+                    <label for="booking-date">Preferred date</label>
+                    <input id="booking-date" name="date" type="date" required>
+                </div>
+                <div class="form-field">
+                    <label for="booking-time">Preferred time</label>
+                    <select id="booking-time" name="time" required>
+                        <option value="" selected disabled>Select a time</option>
+                        <option>17:00</option>
+                        <option>17:30</option>
+                        <option>18:00</option>
+                        <option>18:30</option>
+                        <option>19:00</option>
+                        <option>19:30</option>
+                        <option>20:00</option>
+                        <option>20:30</option>
+                        <option>21:00</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="booking-guests">Number of guests</label>
+                    <select id="booking-guests" name="guests" required>
+                        <option value="" selected disabled>Select guests</option>
+                        <option value="1">1 guest</option>
+                        <option value="2">2 guests</option>
+                        <option value="3">3 guests</option>
+                        <option value="4">4 guests</option>
+                        <option value="5">5 guests</option>
+                        <option value="6">6 guests</option>
+                        <option value="7">7 guests</option>
+                        <option value="8">8 guests</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="booking-name">Your name</label>
+                    <input id="booking-name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="form-field">
+                    <label for="booking-email">Email address</label>
+                    <input id="booking-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="form-field">
+                    <label for="booking-phone">Phone number</label>
+                    <input id="booking-phone" name="phone" type="tel" autocomplete="tel" required>
+                </div>
+                <div class="form-field form-field--wide">
+                    <label for="booking-notes">Special requests <span>(optional)</span></label>
+                    <textarea id="booking-notes" name="notes" placeholder="Dietary needs, a special occasion, or anything else we should know"></textarea>
+                </div>
+                <button class="button-link button-link--filled form-submit" type="submit">Preview booking request</button>
+                <p class="form-note">Concept form only. Submitting will not send or confirm a real reservation.</p>
+                <div class="booking-result" id="booking-result" role="status" aria-live="polite"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-branding">
+            <a class="brand" href="index.html">Gauchini</a>
+            <p>Contemporary Italian dining concept</p>
+        </div>
+        <div class="footer-group">
+            <p class="footer-heading">Contact</p>
+            <a href="mailto:hello@gauchini.example">hello@gauchini.example</a>
+            <a href="tel:+442079460123">+44 (0)20 7946 0123</a>
+            <a href="menu.html">View the menu</a>
+        </div>
+        <div class="footer-group">
+            <p class="footer-heading">Social</p>
+            <div class="footer-socials" aria-label="Demo social media links">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram demo link" title="Instagram demo link"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt=""></a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook demo link" title="Facebook demo link"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt=""></a>
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X demo link" title="X demo link"><img src="https://cdn.simpleicons.org/x/FFFFFF" alt=""></a>
+            </div>
+            <p class="footer-note">Demo links open each platform; they are not connected to Gauchini profiles.</p>
+        </div>
+    </footer>
+
+    <script>
+        const bookingForm = document.querySelector("#booking-form");
+        const bookingDate = document.querySelector("#booking-date");
+        const bookingResult = document.querySelector("#booking-result");
+        const today = new Date();
+        today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+        bookingDate.min = today.toISOString().slice(0, 10);
+
+        bookingForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const formData = new FormData(bookingForm);
+            const requestedDate = new Date(`${formData.get("date")}T00:00:00`).toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+            bookingResult.textContent = `Request preview for ${formData.get("name")}: ${formData.get("guests")} guest(s), ${requestedDate} at ${formData.get("time")}. This concept form does not send or confirm reservations.`;
+            bookingResult.classList.add("is-visible");
+        });
+    </script>
+</body>
+</html>
